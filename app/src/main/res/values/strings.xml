@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">My Story App</string>
+    <string name="signup_title_text">Sign up</string>
+    <string name="login_title_text">Login</string>
+    <string name="signup_fullname_text">Full Name</string>
+    <string name="signup_username_text">Email</string>
+
+    <string name="password_error_text">Password minimal 6 karakter</string>
+    <string name="signup_password_text">Password</string>
+    <string name="btn_signup_text">Continue</string>
+    <string name="btn_login_text">Log in</string>
+    <string name="image_for_signup_desc">Image For Signup</string>
+    <string name="image_for_login_desc">Image For Login</string>
+    <string name="hint_new_password">Enter new password</string>
+    <string name="hint_new_username">Enter new email</string>
+    <string name="hint_login_password">Enter your password</string>
+    <string name="hint_login_username">Enter your email</string>
+    <string name="hint_fullname">Enter your fullname</string>
+    <string name="txt_label_for_login">Joined us before ?</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_dont_have_account">Don\'t have an account ?</string>
+    <string name="txt_signup_action">Signup</string>
+    <string name="txt_loading">Please wait . . .</string>
+    <string name="err_txt_required">Field can not be an empty</string>
+    <string name="err_txt_unauthenticate">Unauthenticate</string>
+    <string name="image_item_story_desc">Image Item Story</string>
+</resources>
