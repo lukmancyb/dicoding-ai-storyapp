@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.util.Log.e
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -46,21 +45,23 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-    fun setUpRegister() {
+    private fun setUpRegister() {
         viewBinding.apply {
             btnSignup.setOnClickListener {
                 if (edtSignupFullName.text.toString().isEmpty()) {
-                    edtSignupFullName.error = "Tidak boleh kosong"
+                    edtSignupFullName.error = getString(R.string.err_txt_required)
                     return@setOnClickListener
                 }
                 if (edtSignupEmail.text.toString().isEmpty()) {
-                    edtSignupEmail.error = "Tidak boleh kosong"
+                    edtSignupEmail.error = getString(R.string.err_txt_required)
                     return@setOnClickListener
                 }
                 if (edtSignupPassword.text.toString().isEmpty()) {
-                    edtSignupPassword.error = "Tidak boleh kosong"
+                    edtSignupPassword.error = getString(R.string.err_txt_required)
                     return@setOnClickListener
                 }
+                if(edtSignupEmail.error != null || edtSignupPassword.error != null)
+                    return@setOnClickListener
                 dialog.show()
                 signupViewModel.register(
                     edtSignupFullName.text.toString(),
@@ -80,18 +81,14 @@ class SignUpActivity : AppCompatActivity() {
                         finish()
                     }
                     is ApiResponse.Error -> {
-                        e("ERROR", it.isNetworkError.toString())
-                        if (it.isNetworkError) {
-                            Toast.makeText(this@SignUpActivity, it.message, Toast.LENGTH_LONG)
-                                .show()
-                        } else {
-                            Toast.makeText(
-                                this@SignUpActivity,
-                                it.errorBody,
-                                Toast.LENGTH_LONG
-                            )
-                                .show()
-                        }
+
+                        Toast.makeText(
+                            this@SignUpActivity,
+                            if (it.isNetworkError) it.message else it.errorBody.toString(),
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
+
 
                     }
                     is ApiResponse.Empty -> {}

@@ -72,12 +72,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutFullname">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.dicoding.ai.mystoryapp.ui.customview.MyEmailEditText
             android:id="@+id/edtSignupEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_new_username"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

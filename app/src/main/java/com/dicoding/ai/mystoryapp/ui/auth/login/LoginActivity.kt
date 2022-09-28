@@ -15,10 +15,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.ai.mystoryapp.R
 import com.dicoding.ai.mystoryapp.data.Constants.USER_PREFERENCES
 import com.dicoding.ai.mystoryapp.data.UserPreference
+import com.dicoding.ai.mystoryapp.data.loadingDialog
 import com.dicoding.ai.mystoryapp.data.network.ApiResponse
 import com.dicoding.ai.mystoryapp.data.network.ApiServices
 import com.dicoding.ai.mystoryapp.data.repository.MainRepository
-import com.dicoding.ai.mystoryapp.data.loadingDialog
 import com.dicoding.ai.mystoryapp.databinding.ActivityLoginBinding
 import com.dicoding.ai.mystoryapp.ui.ViewModelFactory
 import com.dicoding.ai.mystoryapp.ui.auth.signup.SignUpActivity
@@ -40,6 +40,8 @@ class LoginActivity : AppCompatActivity() {
         viewBinding = ActivityLoginBinding.inflate(layoutInflater)
         dialog = loadingDialog(layoutInflater)
         setContentView(viewBinding.root)
+
+
         setUpView()
         setUpViewModel()
         setUpLogin()
@@ -56,6 +58,8 @@ class LoginActivity : AppCompatActivity() {
                     edtLoginPassword.error = getString(R.string.err_txt_required)
                     return@setOnClickListener
                 }
+               if(edtLoginEmail.error != null || edtLoginPassword.error != null)
+                return@setOnClickListener
                 dialog.show()
                 loginViewModel.login(
                     edtLoginEmail.text.toString(),
@@ -74,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
 
                         Snackbar.make(
                             viewBinding.root,
-                            it.errorBody.toString(),
+                            if (it.isNetworkError) it.message else it.errorBody.toString(),
                             Snackbar.LENGTH_LONG
                         ).show()
 

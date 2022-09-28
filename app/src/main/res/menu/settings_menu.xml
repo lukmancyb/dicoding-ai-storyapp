@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Change Language"
-        android:id="@+id/menu_change_language"/>
+        android:id="@+id/menu_change_language"
+        android:title="@string/txt_change_language" />
     <item
         android:id="@+id/menu_logout"
-        android:title="Logout"/>
+        android:title="@string/menu_logout" />
 
 
 </menu>

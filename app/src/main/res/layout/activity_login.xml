@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginTitleText">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.dicoding.ai.mystoryapp.ui.customview.MyEmailEditText
             android:id="@+id/edtLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -3,6 +3,7 @@ package com.dicoding.ai.mystoryapp.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.ai.mystoryapp.data.repository.MainRepository
+import com.dicoding.ai.mystoryapp.ui.addstory.AddStoryViewModel
 import com.dicoding.ai.mystoryapp.ui.auth.login.LoginViewModel
 import com.dicoding.ai.mystoryapp.ui.auth.signup.SignupViewModel
 import com.dicoding.ai.mystoryapp.ui.home.MainViewModel
@@ -22,6 +23,9 @@ class ViewModelFactory(private val repo : MainRepository) :
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java)-> {
                 LoginViewModel(repo) as T
+            }
+            modelClass.isAssignableFrom(AddStoryViewModel::class.java)->{
+                AddStoryViewModel(repo) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

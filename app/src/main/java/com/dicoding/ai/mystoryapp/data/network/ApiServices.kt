@@ -4,7 +4,9 @@ import com.dicoding.ai.mystoryapp.data.model.AuthResponse
 import com.dicoding.ai.mystoryapp.data.model.StoryModel
 import com.dicoding.ai.mystoryapp.data.model.StoryResponse
 import com.dicoding.ai.mystoryapp.data.model.UserModel
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -33,6 +35,15 @@ interface ApiServices {
     suspend fun getStories(
         @Header("Authorization") token : String
     ) : StoryResponse<List<StoryModel>>
+
+    @Multipart
+    @POST("v1/stories")
+    suspend fun postStory(
+        @Header("Authorization") token : String,
+        @Part file : MultipartBody.Part,
+        @Part("description") desc : RequestBody
+
+    ) : StoryResponse<String>
 
     companion object {
         fun getApiServices(): ApiServices {

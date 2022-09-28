@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="signup_title_text">Daftar</string>
+    <string name="login_title_text">Masuk</string>
+    <string name="signup_fullname_text">Nama Lengkap</string>
+    <string name="signup_username_text">Email</string>
+
+    <string name="password_error_text">Password minimal 6 karakter</string>
+    <string name="signup_password_text">Password</string>
+    <string name="btn_signup_text">Lanjut</string>
+    <string name="btn_login_text">Masuk</string>
+    <string name="image_for_signup_desc">Gambar untuk daftar</string>
+    <string name="image_for_login_desc">Gambar untuk masuk aplikasi</string>
+    <string name="hint_new_password">Password baru</string>
+    <string name="hint_new_username">Email Baru</string>
+    <string name="hint_login_password">Password anda</string>
+    <string name="hint_login_username">Email anda</string>
+    <string name="hint_fullname">Masukan nama lengkap anda</string>
+    <string name="txt_label_for_login">Sudah bergabung sebelumnya ?</string>
+    <string name="txt_login">Masuk</string>
+    <string name="txt_dont_have_account">Belum punya akun ?</string>
+    <string name="txt_signup_action">Daftar</string>
+    <string name="txt_loading">Tunggu sebentar . . .</string>
+    <string name="err_txt_required">Isian tidak boleh kosong</string>
+    <string name="err_txt_email">Masukan email yang valid</string>
+    <string name="err_txt_unauthenticate">Tidak diautentikasi</string>
+    <string name="image_item_story_desc">Gambar untuk item story</string>
+    <string name="btn_add_new_story">Tambah Story</string>
+    <string name="hint_story_desc">Masukan deskripsi ..</string>
+    <string name="btn_add_story_content_desc">Unggah story anda</string>
+    <string name="text_reload">Ulangi</string>
+    <string name="image_to_upload">Gambar yang di upload</string>
+    <string name="btn_pick_gallery">Album</string>
+    <string name="btn_pick_camera">Kamera</string>
+    <string name="img_detail_story_desc">Detail dari story </string>
+    <string name="txt_err_network">Kendala jaringan</string>
+    <string name="img_error_network">Kendala Jaringan</string>
+    <string name="txt_pick_image_upload">Masukan gambar terlebih dahulu</string>
+    <string name="txt_change_language">Ubah Bahasa</string>
+    <string name="menu_logout">Keluar</string>
+    <string name="txt_empty_data">Data masih kosong</string>
+    <string name="empty_text">Text Empty</string>
+    <string name="txt_success_upload">Berhasil upload</string>
+    <string name="txt_camera_err">Gagal memunculkan kamera.</string>
+    <string name="txt_file_error">Gagal mengambil gambar.</string>
+    <string name="txt_permission_camera">Aplikasi membutuhkan akses kamera untuk dapat berjalan</string>
+
+
+</resources>

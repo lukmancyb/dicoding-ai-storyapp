@@ -21,13 +21,13 @@ class MainViewModel(private val repo: MainRepository) : ViewModel() {
     }
 
 
-    fun getUser(): LiveData<UserModel> {
+    private fun getUser(): LiveData<UserModel> {
         return repo.getUser().asLiveData()
     }
 
     fun removeUser() = viewModelScope.launch { repo.logoutUser() }
 
-    fun getStories(): LiveData<ApiResponse<List<StoryModel>>> {
+    private fun getStories(): LiveData<ApiResponse<List<StoryModel>>> {
         return Transformations.switchMap(
             getUser()
         ) {

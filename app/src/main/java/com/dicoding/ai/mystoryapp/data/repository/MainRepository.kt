@@ -9,6 +9,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.HttpException
 
 class MainRepository(
@@ -53,7 +55,7 @@ class MainRepository(
         }.flowOn(Dispatchers.IO)
     }
 
-     fun getStories(token : String) : Flow<ApiResponse<List<StoryModel>>>{
+    fun getStories(token: String): Flow<ApiResponse<List<StoryModel>>> {
         return flow {
             try {
                 val res = retrofitServices.getStories(token)
@@ -86,7 +88,7 @@ class MainRepository(
         name: String,
         email: String,
         password: String
-    ) : Flow<ApiResponse<String>> {
+    ): Flow<ApiResponse<String>> {
         return flow {
             try {
                 val res = retrofitServices.register(name, email, password)
@@ -95,6 +97,35 @@ class MainRepository(
                 } else {
                     emit(ApiResponse.Success(res.message))
                 }
+            } catch (t: Throwable) {
+                when (t) {
+                    is HttpException -> {
+                        emit(
+                            ApiResponse.Error(
+                                t.message.toString(),
+                                false,
+                                t.code(),
+                                t.response()?.errorBody()?.string()
+                            )
+                        )
+                    }
+                    else -> {
+                        emit(ApiResponse.Error("Network Eror", true, null, null))
+                    }
+                }
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun postStory(
+        file: MultipartBody.Part,
+        desc: RequestBody,
+        token: String
+    ): Flow<ApiResponse<String>> {
+        return flow {
+            try {
+                val res = retrofitServices.postStory(token, file, desc)
+                emit(ApiResponse.Success(res.message))
             } catch (t: Throwable) {
                 when (t) {
                     is HttpException -> {

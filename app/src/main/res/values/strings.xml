@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">My Story App</string>
+    <string name="app_name">Story App</string>
     <string name="signup_title_text">Sign up</string>
     <string name="login_title_text">Login</string>
-    <string name="signup_fullname_text">Full Name</string>
+    <string name="signup_fullname_text">Fullname</string>
     <string name="signup_username_text">Email</string>
 
-    <string name="password_error_text">Password minimal 6 karakter</string>
+    <string name="password_error_text">Password  at least 6 characters</string>
     <string name="signup_password_text">Password</string>
     <string name="btn_signup_text">Continue</string>
     <string name="btn_login_text">Log in</string>
@@ -15,13 +15,34 @@
     <string name="hint_new_username">Enter new email</string>
     <string name="hint_login_password">Enter your password</string>
     <string name="hint_login_username">Enter your email</string>
-    <string name="hint_fullname">Enter your fullname</string>
+    <string name="hint_fullname">Enter your Fullname</string>
     <string name="txt_label_for_login">Joined us before ?</string>
     <string name="txt_login">Login</string>
     <string name="txt_dont_have_account">Don\'t have an account ?</string>
     <string name="txt_signup_action">Signup</string>
     <string name="txt_loading">Please wait . . .</string>
     <string name="err_txt_required">Field can not be an empty</string>
+    <string name="err_txt_email">Enter valid email</string>
     <string name="err_txt_unauthenticate">Unauthenticate</string>
     <string name="image_item_story_desc">Image Item Story</string>
+    <string name="btn_add_new_story">Add New Story</string>
+    <string name="hint_story_desc">Input description of your story</string>
+    <string name="btn_add_story_content_desc">Submit your story</string>
+    <string name="text_reload">Reload</string>
+    <string name="image_to_upload">Image to upload</string>
+    <string name="btn_pick_gallery">Gallery</string>
+    <string name="btn_pick_camera">Camera</string>
+    <string name="img_detail_story_desc">Detail of story</string>
+    <string name="txt_err_network">Network Error</string>
+    <string name="img_error_network">Error network</string>
+    <string name="txt_pick_image_upload">Pick Image first</string>
+    <string name="txt_change_language">Change Language</string>
+    <string name="menu_logout">Logout</string>
+    <string name="txt_empty_data">Empty stories</string>
+    <string name="empty_text">Text Empty</string>
+    <string name="txt_success_upload">Story uploaded</string>
+    <string name="txt_camera_err">Error when opening kamera.</string>
+    <string name="txt_file_error">Error when opening file.</string>
+    <string name="txt_permission_camera">The app requires camera access to run</string>
+    <string name="title_activity_maps_story">MapsStoryActivity</string>
 </resources>

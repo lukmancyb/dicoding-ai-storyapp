@@ -5,23 +5,26 @@ import android.graphics.Canvas
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.Patterns
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import com.dicoding.ai.mystoryapp.R
 
-class MyPasswordEditText : AppCompatEditText {
+class MyEmailEditText : AppCompatEditText {
 
-    constructor(context: Context) : super(context){
+    constructor(context: Context) : super(context) {
         init()
     }
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs){
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
     }
+
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
-    ){
+    ) {
         init()
     }
 
@@ -39,7 +42,9 @@ class MyPasswordEditText : AppCompatEditText {
             }
 
             override fun onTextChanged(s: CharSequence, p1: Int, p2: Int, p3: Int) {
-                showError(s.length < 6)
+
+
+                showEmailError(Patterns.EMAIL_ADDRESS.matcher(s).matches())
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -48,9 +53,10 @@ class MyPasswordEditText : AppCompatEditText {
         })
     }
 
-    private fun showError(flag: Boolean) {
-        error = if (flag)
-            context.getString(R.string.password_error_text)
+
+    private fun showEmailError(valid: Boolean) {
+        error = if (!valid)
+            context.getString(R.string.err_txt_email)
         else
             null
     }
